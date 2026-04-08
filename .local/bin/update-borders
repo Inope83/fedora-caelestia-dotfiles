@@ -1,0 +1,42 @@
+#!/bin/bash
+# Update border, gradien, dan shadow
+
+WALLPAPER=$(swww query 2>/dev/null | grep -oP 'image: \K.*' | head -1)
+
+if [ -n "$WALLPAPER" ]; then
+    caelestia wallpaper -f "$WALLPAPER" 2>/dev/null
+fi
+
+# Ambil warna
+PRIMARY=$(grep '^\$primary\s*=' ~/.config/hypr/scheme/current.conf 2>/dev/null | awk '{print $3}')
+SECONDARY=$(grep '^\$secondary\s*=' ~/.config/hypr/scheme/current.conf 2>/dev/null | awk '{print $3}')
+ON_SURFACE=$(grep '^\$onSurfaceVariant\s*=' ~/.config/hypr/scheme/current.conf 2>/dev/null | awk '{print $3}')
+
+# Default
+PRIMARY=${PRIMARY:-"c2c1ff"}
+SECONDARY=${SECONDARY:-"9e648e"}
+ON_SURFACE=${ON_SURFACE:-"c8c5d1"}
+
+# Border gradien (active)
+ACTIVE_BORDER="rgba(${PRIMARY}cc) rgba(${SECONDARY}cc) 45deg"
+
+# Border tidak aktif
+INACTIVE_BORDER="rgba(${ON_SURFACE}80)"
+
+# Shadow dengan warna primary (50% transparan)
+SHADOW_COLOR="rgba(${PRIMARY}66)"
+
+# Terapkan ke Hyprland
+hyprctl keyword general:col.active_border "$ACTIVE_BORDER"
+hyprctl keyword general:col.inactive_border "$INACTIVE_BORDER"
+hyprctl keyword decoration:shadow:color "$SHADOW_COLOR"
+
+echo "✓ Border gradient: ${PRIMARY} → ${SECONDARY}"
+echo "✓ Shadow glow: ${PRIMARY}66"
+
+# Update Waypaper CSS dengan warna primary
+PRIMARY_HEX=$(echo $PRIMARY | sed 's/^#//')
+sed -i "s/#c2c1ff/#${PRIMARY_HEX}/g" ~/.config/waypaper/style.css 2>/dev/null
+
+# Update terminal colors
+~/.local/bin/update-terminal

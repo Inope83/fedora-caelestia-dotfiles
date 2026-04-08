@@ -1,0 +1,183 @@
+{
+    "appearance": {
+        "cursor": {
+            "theme": "Bibata-Modern-Ice",
+            "size": 24
+        },
+        "font": {
+            "family": {
+                "sans": "Rubik",
+                "mono": "CaskaydiaCove Nerd Font"
+            },
+            "size": 11
+        },
+        "transparency": {
+            "enabled": true,
+            "base": 0.3,
+            "inactive": 0.1
+        },
+        "rounding": 12,
+        "animation": {
+            "enabled": true,
+            "duration": 100,
+            "easing": "easeOutQuad"
+        }
+    },
+    "bar": {
+        "position": "top",
+        "height": 40,
+        "persistent": true,
+        "showOnHover": false,
+        "entries": [
+            {
+                "id": "logo",
+                "enabled": true
+            },
+            {
+                "id": "workspaces",
+                "enabled": true
+            },
+            {
+                "id": "spacer",
+                "enabled": true
+            },
+            {
+                "id": "activeWindow",
+                "enabled": true
+            },
+            {
+                "id": "spacer",
+                "enabled": true
+            },
+            {
+                "id": "tray",
+                "enabled": true
+            },
+            {
+                "id": "clock",
+                "enabled": true
+            },
+            {
+                "id": "statusIcons",
+                "enabled": true
+            },
+            {
+                "id": "power",
+                "enabled": true
+            }
+        ],
+        "workspaces": {
+            "shown": 7,
+            "showNumber": true,
+            "showIcon": false,
+            "showSpecial": true
+        },
+        "clock": {
+            "showIcon": true,
+            "twentyFourHour": true,
+            "showDate": true,
+            "dateFormat": "%d/%m",
+            "timeFormat": "%H:%M"
+        },
+        "status": {
+            "showAudio": true,
+            "showMicrophone": false,
+            "showNetwork": true,
+            "showBluetooth": false,
+            "showBattery": true,
+            "showKbLayout": false,
+            "showLockStatus": false
+        },
+        "tray": {
+            "iconSize": 20,
+            "showPassive": true
+        }
+    },
+    "launcher": {
+        "showApps": true,
+        "showActions": true,
+        "showWallpapers": true,
+        "maxEntries": 15,
+        "width": 500,
+        "height": 400,
+        "borderRadius": 16
+    },
+    "dashboard": {
+        "enabled": true,
+        "showMedia": true,
+        "showQuickSettings": true,
+        "showNotifications": true,
+        "width": 200,
+        "padding": 8,
+        "borderRadius": 12
+    },
+    "notifications": {
+        "position": "top-right",
+        "timeout": 5000,
+        "maxVisible": 5,
+        "showIcons": true,
+        "animation": "slide"
+    },
+    "wallpaper": {
+        "autoChange": false,
+        "interval": 3600,
+        "smartMode": true
+    },
+    "paths": {
+        "wallpaperDir": "~/Pictures/Wallpapers",
+        "screenshotsDir": "~/Pictures/Screenshots",
+        "downloadsDir": "~/Downloads",
+        "musicDir": "~/Music",
+        "documentsDir": "~/Documents"
+    },
+    "media": {
+        "enabled": true,
+        "showCover": true,
+        "showProgress": true
+    },
+    "system": {
+        "battery": {
+            "lowThreshold": 15,
+            "criticalThreshold": 5,
+            "showPercentage": true
+        },
+        "brightness": {
+            "step": 5,
+            "max": 100
+        },
+        "volume": {
+            "step": 5,
+            "max": 100
+        }
+    },
+    "mpris": {
+        "enabled": true,
+        "showPlayerName": true,
+        "fallbackPlayer": "spotify"
+    },
+    "keyboard": {
+        "layouts": [
+            "us",
+            "fr",
+            "de"
+        ],
+        "defaultLayout": "us",
+        "showIndicator": true
+    },
+    "power": {
+        "showMenu": true,
+        "actions": [
+            "lock",
+            "logout",
+            "suspend",
+            "reboot",
+            "shutdown"
+        ],
+        "confirmOnShutdown": true
+    },
+    "advanced": {
+        "debug": false,
+        "logLevel": "info",
+        "reloadOnConfigChange": true
+    }
+}

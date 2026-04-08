@@ -1,0 +1,25 @@
+window {
+    background-color: #1e1e2e;
+    border-radius: 20;
+    border: 1px solid #c2c1ff;
+    padding: 12;
+    width: 500;
+}
+
+inputbar {
+    background-color: #313244;
+    border-radius: 24;
+    padding: 8;
+}
+
+entry {
+    color: #cdd6f4;
+}
+
+element {
+    padding: 8;
+}
+
+element selected {
+    background-color: #c2c1ff;
+}

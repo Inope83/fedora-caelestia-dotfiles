@@ -1,0 +1,22 @@
+#!/bin/bash
+# Wallpaper selector with Rofi - Simple & Stable
+
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+
+# Hitung jumlah wallpaper
+COUNT=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" -o -name "*.webp" \) | wc -l)
+
+# Jika tidak ada wallpaper
+if [ "$COUNT" -eq 0 ]; then
+    notify-send -a "Wallpaper" "⚠️ No wallpapers found" "Add images to $WALLPAPER_DIR"
+    exit 1
+fi
+
+# Tampilkan Rofi (tanpa tema custom)
+CHOICE=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" -o -name "*.webp" \) -printf "%f\n" | sort | rofi -dmenu -i -p "🎨 Wallpaper ($COUNT)")
+
+# Set wallpaper jika ada pilihan
+if [ -n "$CHOICE" ]; then
+    waypaper --wallpaper "$WALLPAPER_DIR/$CHOICE"
+    notify-send -a "Wallpaper" "✅ Changed" "$CHOICE"
+fi
